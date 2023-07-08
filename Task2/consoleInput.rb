@@ -1,4 +1,4 @@
-require_relative "../Task1/Validation Module.rb"
+require_relative "../Task1/validation.rb"
 
 module ConsoleInput
   include Validation
