@@ -36,6 +36,8 @@ class PersonRepository
       person_to_edit.last_name = updated_person.last_name
       person_to_edit.inn = updated_person.inn
       person_to_edit.birth_date = updated_person.birth_date
+
+      return person_to_edit
     end
 
     def delete(person)

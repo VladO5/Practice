@@ -1,5 +1,6 @@
 require 'test/unit'
 require_relative '../Task2/personRepository'
+require_relative '../Task2/person'
 
 class PersonRepositoryTest < Test::Unit::TestCase
 
@@ -56,11 +57,11 @@ class PersonRepositoryTest < Test::Unit::TestCase
   def test_add_invalid_person
     invalid_person = 'invalid'
 
-    assert_raise("Not a person") { @person_repository.add(invalid_person) }
+    assert_raise(ArgumentError) { @person_repository.add(invalid_person) }
   end
 
   def test_add_existing_person
-    assert_raise("Person already exists") { @person_repository.add(@person_1) }
+    assert_raise(ArgumentError) { @person_repository.add(@person_1) }
   end
 
   def test_remove_valid_person
@@ -72,7 +73,7 @@ class PersonRepositoryTest < Test::Unit::TestCase
   def test_remove_invalid_person
     invalid_person = 'invalid'
 
-    assert_raise("Not a person") { @person_repository.delete(invalid_person) }
+    assert_raise(ArgumentError) { @person_repository.delete(invalid_person) }
   end
 
   def test_edit_person_by_inn_valid
@@ -88,7 +89,7 @@ class PersonRepositoryTest < Test::Unit::TestCase
   def test_edit_person_by_inn_invalid
     new_person = 'invalid'
 
-    assert_raise("Not a person") { @person_repository.edit(@person_1.inn, new_person) }
+    assert_raise(ArgumentError) { @person_repository.edit(@person_1.inn, new_person) }
   end
 
   def test_edit_person_by_inn_nonexisting
